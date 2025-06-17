@@ -16,7 +16,7 @@ const Admin: React.FC<AdminProps> = ({ userData }) => {
   const [jsonData, setJsonData] = useState<any>(null);
   const [deleting, setDeleting] = useState(false);
 
-  const { logout, token } = useAuth();
+  const { logout } = useAuth();
   const navigate = useNavigate();
 
   const handleView = (doc: any) => {
@@ -44,7 +44,6 @@ const Admin: React.FC<AdminProps> = ({ userData }) => {
       await axios.delete(`/api/users/${userData.userId}`, {
         headers: {
           'Content-Type': 'application/json',
-          ...(token ? { Authorization: `Bearer ${token}` } : {})
         }
       });
 

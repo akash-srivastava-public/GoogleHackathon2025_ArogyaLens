@@ -3,6 +3,7 @@ import { Box, Container, Tabs, Tab } from '@mui/material';
 import Admin from '../components/Admin';
 import ArogyaLens from '../components/ArogyaLens';
 import axios from 'axios';
+import { useAuth } from '../auth/AuthContext';
 
 const baseURL = "http://localhost:8000/api/v1/user";
 
@@ -10,7 +11,7 @@ const Home: React.FC = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const [userData, setUserData] = useState<any>(null);
 
-  const userId = "c703104f-08f1-4b07-981c-656af5c172c3"
+  const { userId } = useAuth();
 
   const fetchUserData = async () => {
     try {
@@ -35,7 +36,7 @@ const Home: React.FC = () => {
         {tabIndex === 0 && <Admin userData={userData} />}
         {tabIndex === 1 && (
           <ArogyaLens
-            userId={userId}
+            userId={userId+""}
             aiData={userData?.aiReports[0]?.data?.value || []}
             refreshUserData={fetchUserData}
           />
