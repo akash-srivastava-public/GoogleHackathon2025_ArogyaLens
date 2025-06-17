@@ -1,0 +1,20 @@
+# Node
+collections/
+node_modules/
+build/
+dist/
+app/
+public/
+.env
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+node_modules
